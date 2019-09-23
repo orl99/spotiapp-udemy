@@ -7,17 +7,16 @@ import { SpotifySV } from '../services/spotify.service';
   styles: []
 })
 export class HomeComponent implements OnInit {
-
+  loading: boolean;
   ultimasCanciones: any[] = [];
-  // artistas: any[] = [];
   constructor( private httpRequest: HttpClient, private spotyService: SpotifySV) {
 
+    this.loading = true;
     this.spotyService.makeRequestService()
     .subscribe((response: any) => {
-      this.ultimasCanciones = response.albums.items;
-      // this.artistas = response.albums.items.artists;
+      this.ultimasCanciones = response;
       console.log(this.ultimasCanciones);
-      console.log(this.artistas);
+      this.loading = false;
     });
   }
 

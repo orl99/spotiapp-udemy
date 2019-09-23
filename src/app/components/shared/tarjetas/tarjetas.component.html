@@ -1,0 +1,12 @@
+<div *ngFor="let songs of items" class="card animated fadeIn" style="width: 18rem;">
+    <img [src]="songs.images | noimage" class="card-img-top" alt="songs.name">
+    <div class="card-body">
+        <h5 class="card-title">{{ songs.name }}</h5>
+        <div *ngIf="artistInfo">
+            <p class="card-text">
+                <span *ngFor="let artista of songs.artists" class="badge badge-pill badge-light">{{ artista.name }}</span>
+            </p>
+        </div>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
